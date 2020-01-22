@@ -1,5 +1,5 @@
 # EGR 400 Section E
-#HomeWork-1
+#HomeWork_1
 # Rigoberto Gonzalez 
 # 
 # Part 1 of Hw 1
