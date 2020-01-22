@@ -1,4 +1,7 @@
-# EGR 400 HomeWork-1
+# EGR 400 Section E
+#HomeWork-1
+# Rigoberto Gonzalez 
+# 
 # Part 1 of Hw 1
 # Question 1
 print("Key differences that distinguish python 2 and 3 are the print function, "
