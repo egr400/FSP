@@ -1,92 +1,93 @@
-#####Part 1
+"""
+Created by Brandon Aldridge on 1/15/2020
+HW1 for EGR400
+"""
 
-#1
+from math import sqrt
+from math import trunc
+from math import pi
 
-print("In Python 2, implicit str type is ASCII. But in Python 3 it is Unicode.")
 
-#2
+def part1():
 
-List = [0, 1, 2, 3, 4, 5, 6]
-print(List[2])
+    # 1
+    print("Python3 uses: {0}, while Python2 uses: {1}"
+            .format("print('foo'))", "print 'foo'"))
 
-#3
+    # 2
+    x = [0, 1, 2, 3, 4, 5, 6]
+    print(x[2])
 
-y = List.reverse()
-print(List)
-
-#4
-
-z = List.reverse()
-z = List[1:6:2]
-print(z)
-
-#5
-
-#needed colon after code block
-#indentation needed in body
-x = 99
-if (x > 0) is True:
-    print('x is positive')
-
-#####Part 2
-
-#1
-
-F = [0, 1, 1]
-for i in range(3, 23):
-    F.append(F[i-1] + F[i-2])
-    print(F)
-
-#2
-
-x = [2.0, 3.0, 5.0, 7.0, 9.0]
-y = []
-for i in range(5):
-    y.append((3.0*x[i])**2 / ((99*x[i]-x[i]**3)) - (1/x[i]))
+    # 3
+    y = x[::-1]
     print(y)
 
-#3
+    # 4
+    z = x[1:6:2]
+    print(z)
+
+    # 5
+    # corrections
+    x = 99
+    if x > 0:
+        print('x is positive')
 
 
-def quad_formula(a, b, c):
-    import math
-    #negative root
-    x1 = ((-1 * b) - math.sqrt((math.pow(b, 2) - 4*a*c)) / (2*a))
+def part2():
 
-    #positive root
-    x0 = ((-1 * b) + math.sqrt((math.pow(b, 2) - 4*a*c)) / (2*a))
-    return x0, x1
+    # 1
+    print(fibonacci(23))
 
-a = 3.3
-b = 1.7
-c = -9.4
-print(quad_formula(a,b,c))
+    # 2
+    x_list = [2.0, 3.0, 5.0, 7.0, 9.0]
+    y_list = []
 
-#4
+    for x in x_list:
+        y_list.append(((3.0*x)**2) / (99*x - x**3) - 1/x)
 
-while i**2 < 2000:
-    i += 1
-    print(i)
+    # 3
+    a = 3.3
+    b = 1.7
+    c = -9.4
+    print(quadratic_equation(a, b, c))
 
-#5
-import math
+    # 4
+    # largest square less than 2000
+    print((trunc(sqrt(2000)))**2)
+    
+    # 5
+    print(volume(0.69))
+    print(density(0.3))
+    print(density(0.25, 2.0))
 
-def volume(r):
 
-    v = ((4/3)*math.pi*r**3)
-    return v
+def volume(radius):
+    return (4/3) * pi * radius**3
 
-def surface_area(r):
 
-    A = 4*math.pi*r**2
-    return A
+def surface_area(radius):
+    return 4 * pi * radius**2
 
-def density(r, m = 0.35):
-    v = volume(r)
-    p = (m/v)
-    return p
 
-print(volume(0.69))
-print(surface_area(0.4))
-print(density(0.3))
-print(density(0.25, 2.0))
+def density(radius, mass=0.35):
+    return mass / volume(radius)
+
+
+def quadratic_equation(a, b, c):
+    if a == 0:
+        return None
+    x_0 = (-b + sqrt(b**2 - 4 *a * c)) / (2 * a)
+    x_1 = (-b - sqrt(b**2 - 4 *a * c)) / (2 * a)
+    return x_0, x_1
+
+
+def fibonacci(last_index):
+    f = [0, 1, 1]
+    for i in range(3, last_index - 1):
+        f.append(f[i-1] + f[i-2])
+    return f
+
+
+if __name__ == "__main__":
+    part1()
+    part2()
