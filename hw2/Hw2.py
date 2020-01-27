@@ -1,3 +1,4 @@
+#authors:Gil-Mazariegos, Hooks, Velsco, + Group
 import math
 
 pi = math.pi
