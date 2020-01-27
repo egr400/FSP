@@ -1,3 +1,4 @@
+#Authors Gil-Mazariegos, Hooks, Velsco
 import math
 
 pi = math.pi
