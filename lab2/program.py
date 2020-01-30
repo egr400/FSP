@@ -1,5 +1,5 @@
 #!/usr/local/bin/python3
-#Saul Morales, Donald Jalving, Malane Lieng, Brandon Wynn
+#Saul Morales, Donald Jalving, Malane Lieng, Brandon Nguyen, Matthew Hernandez
 import json
 import os
 import xml.etree.ElementTree as xmltree
