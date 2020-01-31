@@ -64,23 +64,26 @@ class Program:
                 json.dump(data, write_file)
             print()
 
-        def load_csv(self):
-            filename = os.path.join(self.data_folder, "fx-seven-day.csv")
-            self.logger.log("Loading CSV file: {0}".format(filename))
+    def load_csv(self):
+        filename = os.path.join(self.data_folder, "fx-seven-day.csv")
+        self.logger.log("Loading CSV file: {0}".format(filename))
 
-            # Answer what is the 7 day average for RUPEEs to USD?
-            # (need to go from rupees -> canadian dollars -> usd)
+        # Answer what is the 7 day average for RUPEEs to USD?
+        # (need to go from rupees -> canadian dollars -> usd)
 
-            lookup = self.build_currency_lookup(filename)
-            rupee = lookup["INR"]
-            usd = lookup["USD"]
-            rupees_per_canadian_dollar = self.average(rupee["values"])
-            usa_per_canadian_dollar = self.average(usd["values"])
+        lookup = self.build_currency_lookup(filename)
+        rupee = lookup["INR"]
+        usd = lookup["USD"]
+        rupees_per_canadian_dollar = self.average(rupee["values"])
+        usa_per_canadian_dollar = self.average(usd["values"])
 
-            rupee_per_usd = usa_per_canadian_dollar / rupees_per_canadian_dollar
+        rupee_per_usd = usa_per_canadian_dollar / rupees_per_canadian_dollar
 
-            print("1 USD is worth {0} Rupees.".format(rupee_per_usd))
-            self.logger.log("1 USD is worth {0} Rupees.".format(rupee_per_usd))
+        print("1 USD is worth {0} Rupees.".format(rupee_per_usd))
+        self.logger.log("1 USD is worth {0} Rupees.".format(rupee_per_usd))
+        with open("fx-seven-day.csv", 'r') as old, open("new.csv", 'w') as new: #outputs to new .csv file
+            writer = csv.writer(new)
+            writer.writerows(line.split() for line in old)
 
         @staticmethod
         def build_currency_lookup(filename):
