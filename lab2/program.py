@@ -1,6 +1,6 @@
 #!/usr/local/bin/python3
 #Saul Morales, Donald Jalving, Malane Lieng, Brandon Nguyen, Matthew Hernandez, 
-#Monica Velasco, Kamari Hooks, Gabby Gil- Mazariegos
+#Monica Velasco, Kamari Hooks, Gabby Gil- Mazariegos, Gregorio Lopez
 import json
 import os
 import xml.etree.ElementTree as ET
@@ -36,8 +36,12 @@ class Program:
             self.logger.log("Loading XML file: {0}".format(filename))
             dom = xmltree.ElementTree()
             dom.parse(filename)
-
             print()
+            
+            with open("micheal-kennedy-blog.xml", 'rt') as f:
+                tree = ElementTree.parse(f)
+            
+            print(tree)
             print("Titles of recent posts:")
             items = list(dom.findall("channel/item"))
             self.logger.log("Found {0} titles in RSS feed.".format(len(items)))
