@@ -51,6 +51,8 @@ class Program:
                     item.find("link").text))
             
             with open("new.xml", "w")
+            tree = ElementTree.parse("new.xml")
+            ElementTree.dump(tree)
             print()
 
         def load_json(self):
