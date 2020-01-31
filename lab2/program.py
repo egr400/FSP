@@ -3,7 +3,7 @@
 #Monica Velasco, Kamari Hooks, Gabby Gil- Mazariegos
 import json
 import os
-import xml.etree.ElementTree as xmltree
+import xml.etree.ElementTree as ET
 from logger import Logger
 
 
@@ -11,7 +11,7 @@ class Program:
     # !/usr/local/bin/python3
     import json
     import os
-    import xml.etree.ElementTree as xmltree
+    import xml.etree.ElementTree as ET
     from logger import Logger
 
     class Program:
