@@ -49,6 +49,8 @@ class Program:
                 print("{0} [{1}]".format(
                     item.find("title").text,
                     item.find("link").text))
+            
+            with open("new.xml", "w")
             print()
 
         def load_json(self):
