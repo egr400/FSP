@@ -1,5 +1,6 @@
 #!/usr/local/bin/python3
-#Saul Morales, Donald Jalving, Malane Lieng, Brandon Nguyen, Matthew Hernandez
+#Saul Morales, Donald Jalving, Malane Lieng, Brandon Nguyen, Matthew Hernandez, 
+#Monica Velasco, Kamari Hooks, Gabby Gil- Mazariegos
 import json
 import os
 import xml.etree.ElementTree as xmltree
@@ -59,6 +60,8 @@ class Program:
                 print("Locations:")
                 for e in engagements:
                     print("\t" + e["City"] + " on " + e["StartDate"] + " [active? " + str(e["ActiveEngagement"]) + "]")
+                with open("new.json", "w") as write_file:
+                json.dump(data, write_file)
             print()
 
         def load_csv(self):
