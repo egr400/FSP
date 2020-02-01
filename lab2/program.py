@@ -31,29 +31,21 @@ class Program:
             self.logger.log("Application starting up...")
             self.logger.log("Data folder: {0}".format(self.data_folder))
 
-        def load_xml(self):
-            filename = os.path.join(self.data_folder, "michael-kennedy-blog.xml")
-            self.logger.log("Loading XML file: {0}".format(filename))
-            dom = xmltree.ElementTree()
-            dom.parse(filename)
-            print()
-            
-            with open("micheal-kennedy-blog.xml", 'rt') as f:
-                tree = ElementTree.parse(f)
-            
-            print(tree)
-            print("Titles of recent posts:")
-            items = list(dom.findall("channel/item"))
-            self.logger.log("Found {0} titles in RSS feed.".format(len(items)))
-            for item in items:
-                print("{0} [{1}]".format(
-                    item.find("title").text,
-                    item.find("link").text))
-            
-            with open("new.xml", "w")
-            tree = ElementTree.parse("new.xml")
-            ElementTree.dump(tree)
-            print()
+    def load_xml(self):
+        filename = os.path.join(self.data_folder, "michael-kennedy-blog.xml")
+        self.logger.log("Loading XML file: {0}".format(filename))
+        dom = xmltree.ElementTree()
+        dom.parse(filename)
+
+        print()
+        print("Titles of recent posts:")
+        items = list(dom.findall("channel/item"))
+        self.logger.log("Found {0} titles in RSS feed.".format(len(items)))
+        for item in items:
+            print("{0} [{1}]".format(
+                item.find("title").text,
+                item.find("link").text))
+        print()
 
         def load_json(self):
             filename = os.path.join(self.data_folder, "python-course.json")
