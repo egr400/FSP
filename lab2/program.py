@@ -35,12 +35,19 @@ class Program:
         filename = os.path.join(self.data_folder, "michael-kennedy-blog.xml")
         self.logger.log("Loading XML file: {0}".format(filename))
         dom = xmltree.ElementTree()
+        print(dom)
         dom.parse(filename)
+        root = dom.getroot()
+        print(root)
 
-        print()
         print("Titles of recent posts:")
         items = list(dom.findall("channel/item"))
         self.logger.log("Found {0} titles in RSS feed.".format(len(items)))
+        
+                # writing to xml 
+        myfile = open('data/xml_output.xml', 'w')
+        myfile.write(items)
+        
         for item in items:
             print("{0} [{1}]".format(
                 item.find("title").text,
