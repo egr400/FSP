@@ -9,6 +9,7 @@ import sqlite3
 #in the __init__ method, replace the "data" string with the path to your data folder on your
 #machine. If everything was configured correctly, program.py will run and create a database
 #object inside the newly created data folder.
+#if you are getting a unicode error try inputting "r" before the string to your path to the folder
 class DB:
     def __init__(self):
         self.db_name = "TheDatabaseBlog"
