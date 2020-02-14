@@ -1,8 +1,14 @@
+#Saul Morales, Donald Jalving, Malane Lieng, Brandon Nguyen, Matthew Hernandez,
+#Monica Velasco, Kamari Hooks, Gabby Gil- Mazariegos, Gregorio Lopez
+
 import time
 import os
 import sqlite3
 
-
+#For this lab, first we create a folder named "data" within our PyCharm project lab3 folder. Then
+#in the __init__ method, replace the "data" string with the path to your data folder on your
+#machine. If everything was configured correctly, program.py will run and create a database
+#object inside the newly created data folder.
 class DB:
     def __init__(self):
         self.db_name = "TheDatabaseBlog"
@@ -42,15 +48,15 @@ class DB:
             db.execute(
                 'INSERT INTO Posts (title, content) VALUES '
                 '("The first blog post", "This is the content of the first post")')
-            #time.sleep(.200) #todo Remove line for possible optimization
+            time.sleep(.200)
             db.execute(
                 'INSERT INTO Posts (title, content) VALUES'
                 ' ("The second blog post", "This is the content of another post")')
-            #time.sleep(.400) #todo Remove line for possible optimization
+            time.sleep(.400)
             db.execute(
                 'INSERT INTO Posts (title, content) VALUES'
                 ' ("A funny post", "This is the content of funny post")')
-            #time.sleep(.100) #todo Remove line for possible optimization
+            time.sleep(.100)
             db.execute(
                 'INSERT INTO Posts (title, content) VALUES'
                 ' ("A very funny post", "This is the content of funny post")')
@@ -80,7 +86,7 @@ class DB:
                 print("{0}, pubished on {1}".format(row['title'], row['published']))
         print()
 
-    def search_bad(self, search_text): # todo Remove module for possible optimization
+    def search_bad(self, search_text):
         print("Showing all rows")
         with sqlite3.connect(self.db_file) as db:
             db.row_factory = sqlite3.Row
@@ -89,7 +95,7 @@ class DB:
                 print("{0}, published on {1}".format(row['title'], row['published']))
         print()
 
-    def search(self, search_text): #todo Make for loop for multiple queries
+    def search(self, search_text):
         search_text = "%{0}%".format(search_text)
         print("Showing all rows")
         with sqlite3.connect(self.db_file) as db:

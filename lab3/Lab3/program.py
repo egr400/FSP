@@ -1,3 +1,6 @@
+#Saul Morales, Donald Jalving, Malane Lieng, Brandon Nguyen, Matthew Hernandez,
+#Monica Velasco, Kamari Hooks, Gabby Gil- Mazariegos, Gregorio Lopez
+
 from db import DB
 
 
