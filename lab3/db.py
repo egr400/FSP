@@ -29,7 +29,6 @@ class DB:
 
         print('')
 
-
     def insert_base_data(self):
         print('')
         print('Inserting base data')
@@ -69,7 +68,6 @@ class DB:
             for row in cursor:
                 print(row)
         print()
-
 
     def show_funny_rows(self):
         print("Showing funny rows")
