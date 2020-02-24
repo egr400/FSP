@@ -52,6 +52,7 @@ class ORM:
 
         ORM.session_factory = sqlalchemy.orm.sessionmaker(bind=ORM.engine)
 
+
     @classmethod
     def create_session(cls):
         return ORM.session_factory()
@@ -82,6 +83,7 @@ class ORM:
         print(session.new)
 
         session.commit()
+
 
     @classmethod
     def update_lol_post(cls):
